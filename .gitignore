@@ -1,0 +1,7 @@
+node_modules/
+app.log
+app.err
+src-pp/
+srcdir/
+dist/
+resources/images/

@@ -1,0 +1,42 @@
+{
+  "name": "img-server",
+  "version": "0.0.1",
+  "description": "Image server with caching and pre-cache image manipulation",
+  "private": "true",
+  "homepage": "https://github.com/willmark/img-server",
+  "main": "index.js",
+  "author": {
+    "name": "Mark Williams",
+    "email": "mark@togglebit.org",
+    "url": "http://togglebit.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willmark/img-server"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "engine": {
+    "node": "0"
+  },
+  "dependencies": {
+    "http-handler": "~0.0.1",
+    "optimist": "~0.6.0",
+    "img-cache": "~0.0.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-preprocess": "~3.0.1",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-nodeunit": "~0.2.2"
+  },
+  "keywords": [
+    "image server",
+    "nodejs images",
+    "image manipulation",
+    "image handling"
+  ],
+  "readmeFilename": "README.md"
+}
