@@ -33,6 +33,7 @@ respondImage = function(req, res) {
     url = require("url");
     reqpath = url.parse(req.url).pathname;
     file = path.join(config.resources, reqpath);
+    imgext = path.extname(reqpath).replace('.','');
     rs = require("fs").createReadStream(file);
     rs.pipe(res);
     rs.on("error", function(errpipe) {
@@ -40,7 +41,7 @@ respondImage = function(req, res) {
         throw errpipe;
     });
     res.writeHead(200, {
-        "Content-Type": "text/plain"
+        "Content-Type": "image/" + imgext
     });
     rs.on("end", function() {
         res.end();
