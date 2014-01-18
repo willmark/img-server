@@ -36,3 +36,21 @@ to the above redirect.  For example:
 app.get(/images\//, routes.images);
 ````
 The express *app* redirects all /images/ matches to the routes/index.js exports.images function above
+
+You can install the image server via npm:
+
+````
+npm install img-server
+````
+
+To modify the configuration settings for the image source directory and destination resources for cached file,
+modify your application startup for the image server like the following example:
+
+````
+img = require('img-server');
+path = require('path');
+img.config.srcdir=path.resolve(path.join(__dirname,'src'));
+img.config.resources=path.resolve(path.join(__dirname,'dst'));
+````
+Where img.config is exported from the img-server module, and is where you can modify the configuration settings.
+

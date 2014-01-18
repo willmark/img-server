@@ -32,7 +32,7 @@ respondImage = function(req, res) {
     fs = require("fs");
     url = require("url");
     reqpath = url.parse(req.url).pathname;
-    file = path.join(resources, reqpath);
+    file = path.join(config.resources, reqpath);
     rs = require("fs").createReadStream(file);
     rs.pipe(res);
     rs.on("error", function(errpipe) {
@@ -54,7 +54,7 @@ respondImage = function(req, res) {
 handleImage = function(req, res) {
     file = url.parse(req.url).pathname;
     basename = path.basename(file);
-    dstdir = path.dirname(path.join(resources, file));
+    dstdir = path.dirname(path.join(config.resources, file));
     srcdir = config.srcdir; 
     imgc = require("img-cache");
     imgc.cacheImage(srcdir, dstdir, basename, function(stat, err) {
