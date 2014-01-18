@@ -55,7 +55,6 @@ handleImage = function(req, res) {
     file = url.parse(req.url).pathname;
     basename = path.basename(file);
     dstdir = path.dirname(path.join(resources, file));
-console.log(Object.keys(module.exports));
     srcdir = config.srcdir; 
     imgc = require("img-cache");
     imgc.cacheImage(srcdir, dstdir, basename, function(stat, err) {
