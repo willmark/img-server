@@ -2,7 +2,6 @@
   "name": "img-server",
   "version": "0.0.1",
   "description": "Image server with caching and pre-cache image manipulation",
-  "private": "true",
   "homepage": "https://github.com/willmark/img-server",
   "main": "index.js",
   "author": {

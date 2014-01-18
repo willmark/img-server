@@ -1,0 +1,10 @@
+npm-debug.log
+app.err
+app.log
+Gruntfile.js
+node_modules
+srcdir
+test.jpg
+test.js
+.git
+.gitignore
