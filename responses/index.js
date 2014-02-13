@@ -61,7 +61,6 @@ var handleImage = function(req, res) {
         dstdir = path.dirname(path.join(config.resources, file)),
         srcdir = config.srcdir, 
         imgc = require("img-cache");
-console.log('handle image cfg',config);
     imgc.cacheImage(srcdir, dstdir, basename, function(stat, err) {
         if (!stat) {
             console.log("not copied: " + err);
