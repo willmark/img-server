@@ -14,7 +14,7 @@ function isValidFile(file) {
 /**
  * Default 404 handler
  */
-respond404 = function (req, res) {
+var respond404 = function (req, res) {
     res.writeHead(404, {
         "Content-Type": "text/plain"
     });
@@ -28,13 +28,14 @@ respond404 = function (req, res) {
  * req - http request
  * res - http response
  */
-respondImage = function(req, res) {
-    fs = require("fs");
-    url = require("url");
-    reqpath = url.parse(req.url).pathname;
-    file = path.join(config.resources, reqpath);
-    imgext = path.extname(reqpath).replace('.','');
-    rs = require("fs").createReadStream(file);
+var respondImage = function(req, res) {
+    var fs = require("fs"),
+        url = require("url"),
+        path = require("path"),
+        reqpath = url.parse(req.url).pathname,
+        file = path.join(config.resources, reqpath),
+        imgext = path.extname(reqpath).replace('.',''),
+        rs = require("fs").createReadStream(file);
     rs.pipe(res);
     rs.on("error", function(errpipe) {
         console.error(errpipe);
@@ -52,12 +53,15 @@ respondImage = function(req, res) {
  * Caches image to the destination directory, performing an image transformation 
  * if appropriate first using the img-cache utility (see https://github.com/willmark/img-cache)
  */
-handleImage = function(req, res) {
-    file = url.parse(req.url).pathname;
-    basename = path.basename(file);
-    dstdir = path.dirname(path.join(config.resources, file));
-    srcdir = config.srcdir; 
-    imgc = require("img-cache");
+var handleImage = function(req, res) {
+    var url = require("url"),
+        path = require("path"),
+        file = url.parse(req.url).pathname,
+        basename = path.basename(file),
+        dstdir = path.dirname(path.join(config.resources, file)),
+        srcdir = config.srcdir, 
+        imgc = require("img-cache");
+console.log('handle image cfg',config);
     imgc.cacheImage(srcdir, dstdir, basename, function(stat, err) {
         if (!stat) {
             console.log("not copied: " + err);
