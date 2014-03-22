@@ -32,7 +32,6 @@ exports.response200 = function(a) {
             res.on('end', function (chunk) {
                 imgserver.close();
                 a.ok(res.statusCode === 200);
-                //a.ok(chunk.toString() === '/images/file2 not found');
                 a.done();
             });
         }); 
@@ -49,7 +48,6 @@ exports.response200Resize150x150 = function(a) {
             res.on('end', function (chunk) {
                 imgserver.close();
                 a.ok(res.statusCode === 200);
-                //a.ok(chunk.toString() === '/images/file2 not found');
                 a.done();
             });
         }); 
